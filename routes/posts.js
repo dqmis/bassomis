@@ -8,7 +8,7 @@ const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
 
 var storage = multer.diskStorage({
-  destination: './angular-src/src/assets/uploads/photos',
+  destination: '.public/assets/uploads/photos',
   filename: function (req, file, cb) {
       return cb(null, file.originalname + '.jpeg')
   }
@@ -101,7 +101,6 @@ router.get('/getPost/:id', (req, res) => {
 
 router.get('/getPostsL/:category', (req, res) => {
     const category = req.params.category;
-    console.log(category);
     Post.getPostsByCategoryLimited(category, (err, posts) => {
         res.json(posts);
     })
