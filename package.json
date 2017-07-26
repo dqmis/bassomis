@@ -15,5 +15,18 @@
   "bugs": {
     "url": "https://github.com/dqmis/bassomis/issues"
   },
+  "dependencies": {
+    "body-parser": "*",
+    "connect-busboy": "0.0.2",
+    "cors": "^2.8.3",
+    "express": "*",
+    "froala-editor": "^2.6.2",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "mongoose": "*",
+    "multer": "^1.3.0",
+    "node-uuid": "^1.4.8",
+    "passport": "*"
+  },
   "homepage": "https://github.com/dqmis/bassomis#readme"
 }
