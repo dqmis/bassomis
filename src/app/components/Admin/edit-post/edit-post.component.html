@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <form>
+        <label for="category">Kategorija</label>
+        <select id="category" [(ngModel)]="category" name="category">
+          <option *ngFor="let category of categories" [ngValue]="category._id">{{category.title}}</option>
+        </select>
+        <label for="title">Pavadinimas</label>
+        <input #title type="text" id="title" value="post.title"/>
+        <label for="intro">Intro</label>
+        <input #intro type="text" id="intro" value="post.intro"/>
+        <label for="content">Tekstas</label>
+        <textarea #content rows="50" id="content" value="post.content"></textarea>
+        <label for="photo">Nuotrauka</label>
+        <input #photo type="file" id="photo" value="post.photo"/>
+        <label for="isImportant">Svarbus</label>
+        <input type="checkbox" [(ngModel)]="isImportant" name="checkbox"/>
+        <button (click)="save(category, title.value, intro.value, content.value, photo.value)">Išsaugoti</button>
+      </form>
+    </div>
+  </div>
+</div>

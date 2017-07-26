@@ -1,0 +1,72 @@
+.story-title{
+    margin-top: 100px;
+}
+
+h1.title{
+    text-align: left;
+    font-weight: bold;
+    color: rgba(0,0,0,.85);
+    font-size: 3.3rem;
+    margin: 0;
+}
+
+h2.sub-title{
+    margin-top: 20px;
+    text-align: left;
+    color: #616161;
+    margin-bottom: 20px;
+    font-size: 2.1rem;
+}
+
+h3.text{
+    margin-top: 35px;
+    font-family: 'Vollkorn', serif;
+    font-size: 1.5rem;
+    line-height: 1.58;
+    color: rgba(0,0,0,.7);
+        font-weight: 400;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1.58;
+    letter-spacing: -.003em;
+    white-space: pre-line;
+
+}
+
+
+h3.time{
+    font-size: 18px;
+    color: #757575;
+}
+
+i{
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+.img-wrap{
+}
+
+img.main-story-img{
+    width: 100%;
+    object-fit: cover;
+    height: 65vh;
+}
+
+@media screen and (max-width: 456px) {
+    img.main-story-img{
+        height: 29vh;
+    }
+
+    .img-wrap{
+        padding: 0px;
+    }
+
+    h1.title{
+        font-size: 2.5rem;
+    }
+
+    .story-title{
+        margin-top: 25px;
+    }
+}

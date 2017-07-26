@@ -1,0 +1,12 @@
+.footer{
+    border-top: 1px solid #eeeeee;
+    margin-top: 50px;
+    text-align: center;
+}
+
+h3{
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 30px 60px;
+    color: #9E9E9E;
+}

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 create-form">
+      <form enctype="multipart/form-data">
+        <input #title type="text" placeholder="Pavadinimas" id="title"/>
+        <input #intro type="text" placeholder="Intro" id="intro"/>
+        <textarea #content rows="50" id="content" placeholder="Tekstas"></textarea>
+        <label for="category" class="category">Kategorija</label>
+        <select id="category" [(ngModel)]="category" name="category">
+          <option *ngFor="let category of categories" [ngValue]="category._id">{{category.title}}</option>
+        </select>
+        <br>
+        <label for="photo" class="photo">Nuotrauka</label>
+        <input #photo type="file" id="photo" (change)="fileChange($event)"/>
+        <label for="isImportant">Svarbus</label>
+        <input type="checkbox" id="important" [(ngModel)]="isImportant" name="checkbox"/>
+        <button (click)="save(category, title.value, intro.value, content.value)">Išsaugoti</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+

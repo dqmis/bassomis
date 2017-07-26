@@ -1,0 +1,9 @@
+h2.form-signin-heading{
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
+
+input.form-control{
+    margin-bottom: 10px;
+}

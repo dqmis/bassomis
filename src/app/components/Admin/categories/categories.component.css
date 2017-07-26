@@ -1,0 +1,103 @@
+button.delete{
+    background-color: #F44336;
+}
+
+button.edit{
+    background-color: #3F51B5;
+}
+
+button.edit:hover{
+    background-color: #3949AB;
+    cursor: pointer;
+}
+
+button.add{
+    background-color: #4CAF50;
+}
+
+button.add:hover{
+    background-color: #43A047;
+    cursor: pointer;
+}
+
+button{
+    margin-left: 10px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+}
+
+span.buttons{
+    width: 20%;
+}
+
+p.li-text{
+    display: inline-block;
+    color: black;
+    width: 70%;
+}
+
+li.cat-li{
+    border-bottom: 1px solid #E0E0E0;
+    padding-top: 8px;
+    padding-left: 10px;
+    padding-right: 6px;
+    margin-bottom: 15px;
+}
+
+button.delete:hover{
+    background-color: #E53935;
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+    font-size: 20px;
+}
+
+i{
+    padding: 6.5px 2.5px;
+}
+
+.categories-edit{
+    margin-top: 100px;
+}
+
+h2.editor{
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+input{
+    margin-left: 20px;
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.cat-edit{
+    margin-top: 40px;
+}
+
+input.edit-cat{
+    width: 100%;
+    margin: 0;
+}
+
+input:hover{
+    color: #212121;
+}
+
+p.err{
+    color: black;
+    text-align: center;
+    font-size: 1.5rem;
+}

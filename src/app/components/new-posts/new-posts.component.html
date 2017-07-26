@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 border-style">
+      <h1 class="news-title">{{category.title}}</h1>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-md-3" *ngFor="let post of posts">
+      <a [routerLink]="['/story', post._id]">
+        <div class="main-post">
+          <img src="assets/uploads/photos/{{post.image}}" class="img-responsive main-story-img" alt="Responsive image">
+          <div class="main-post-text">
+            <h3 class="main-story-title">{{post.title}}</h3>
+            <p class="intro">{{post.intro}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

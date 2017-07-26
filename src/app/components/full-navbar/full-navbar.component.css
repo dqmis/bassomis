@@ -1,0 +1,103 @@
+.navbar{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    padding-bottom: 10px;
+    
+}
+
+.navbar.scrolled {
+  background-color: white !important;
+  transition: background-color 150ms linear;
+  border-bottom: 1px solid #eee;
+}
+
+.nav-top{
+    top: -60px;
+}
+
+i.mdi{
+    font-size: 2.7rem;
+    color: #212121;
+}
+
+i.mdi:hover{
+    cursor: pointer;
+    color: #424242;
+}
+
+a.icon{
+    padding: 10px;
+}
+
+@media screen and (max-width: 6969px) {
+    li{
+        display: inline-block;
+    }
+    ul{
+        text-align: right;
+    }
+}
+
+ul.icons{
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+
+
+ul.categories{
+    text-align: center;
+    list-style-type:none;
+    white-space:nowrap;
+    overflow-x:auto;
+    margin-bottom: 20px;
+}
+
+li.category{
+    display: inline-block;
+}
+
+a.category{
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 0px 10px;
+    color: rgba(0,0,0,.7);
+    text-transform: uppercase; 
+}
+
+a.category:hover{
+    text-decoration: none;
+    color: rgba(0,0,0,.8);
+    cursor: pointer;
+}
+
+.cat-nav{
+    margin-top: 10px;
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+.navbar{
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 425px){
+    ul.icons{
+        padding-top: 4.5px;
+    }
+
+    ul.categories{
+        margin-bottom: 0;
+    }
+
+    .navbar{
+        margin: 0;
+    }
+}

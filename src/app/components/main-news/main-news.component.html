@@ -1,0 +1,24 @@
+<div class="wrapper">
+<app-navbar></app-navbar>
+<div class="container main-news">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="info-headline">Svarbiausia</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let post of importantPosts" div class="col-xs-12 col-md-6">
+      <a [routerLink]="['/story', post._id]">
+        <div class="main-post">
+          <img src="assets/uploads/photos/{{post.image}}" class="responsive-img main-story-img" alt="Responsive image">
+          <div class="main-post-text">
+            <h3 class="main-story-title">{{post.title}}</h3>
+            <p class="intro">{{post.intro}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<app-platform></app-platform>
+</div>

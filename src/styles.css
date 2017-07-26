@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+.thumbnail {
+    position: relative;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@media screen and (min-width: 1800px) {
+    body{
+        background-image: url("assets/background.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.caption {
+    position: absolute;
+    bottom: 3%;
+    left: 7%;
+    width: 80%;
+}
+
+i{
+    vertical-align: middle;
+}
+
+p{
+    color: white
+}
+
+h1.info-headline{
+    margin: 0;
+    margin-top: 100px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+}
+
+
+
+button.navbar-toggler{
+    border: none;
+    outline: none;
+}
+
+h1.news-title{
+    color: #212121;
+    margin: 0;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+}
+
