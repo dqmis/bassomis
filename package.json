@@ -14,7 +14,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cd": "cd angular-src",
+    "build": "ng build",
+    "cdOff": "cd ..",
+    "startServe": "npm start",
+    "start": "npm install && cd angular-src && npm install && npm run -s build && cd .. && npm run -s startServe"
   },
   "repository": {
     "type": "git",
