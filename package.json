@@ -1,8 +1,18 @@
 {
   "name": "bassomis",
   "version": "1.0.0",
-  "description": "Music Blog",
+  "description": "",
   "main": "app.js",
+  "dependencies": {
+    "connect-busboy": "^0.0.2",
+    "cors": "^2.8.3",
+    "froala-editor": "^2.6.2",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin": "^5.3.1",
+    "multer": "^1.3.0",
+    "node-uuid": "^1.4.8"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/dqmis/bassomis.git"
   },
-  "author": "dqmis@bit",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dqmis/bassomis/issues"
