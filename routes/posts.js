@@ -1,11 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs');
 const config = require('../config/database');
 const multer = require('multer');
 const Post = require('../models/post');
 const path = require('path');
 const imagemin = require('imagemin');
 const imageminJpegtran = require('imagemin-jpegtran');
+const s3fs = require('s3fs');
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+const s3fsImp = new s3fs('bassomisbucket', {
+    accessKeyId: 'AKIAIFN6DEET5OFVJB7Q',
+    secretAccessKey: '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'
+});
+const AWS = require('aws-sdk');
+AWS.config.update({ accessKeyId: 'AKIAIFN6DEET5OFVJB7Q', secretAccessKey: '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' });
+
+  var s3 = new AWS.S3();
+
+s3fsImp.create();
+
+
 
 var storage = multer.diskStorage({
   destination: '.public/assets/uploads/photos',
@@ -61,11 +77,10 @@ router.post('/update', (req, res, next) => {
     const category = req.body.category;
     const title = req.body.title;
     const intro = req.body.intro;
-    const content = req.body.intro;
+    const content = req.body.content;
     const image = req.body.image;
     const isImportant = req.body.isImportant;
     const dateEdited = req.body.dateEdited;
-
     Post.updatePost(id, category, title, intro, content, image, isImportant, dateEdited, (err, post) =>{
         if(err){
             res.json({success: false, msg: 'Failed to update post'});
@@ -106,13 +121,35 @@ router.get('/getPostsL/:category', (req, res) => {
     })
 })
 
-router.post('/upload', upPath.single('photo'), (req, res) => {
-    console.log(req.file);
-    imagemin(['./angular-src/src/assets/uploads/photos/' + req.file.name], './angular-src/src/assets/uploads/photos/', {
-	plugins: [
-		imageminJpegtran()
-	]
+router.post('/deletePhoto', (req, res) => {
+  key = req.body.key;
+  var params = {
+  Bucket:'bassomisbucket/photos', 
+  Key: key
+ };
+ s3.deleteObject(params, function(err, data) {
+    return  0;
+ });
 })
+
+
+router.post('/upload', multipartMiddleware, function(req, res){
+    var file = req.files.photo;
+
+    console.log(file.name);
+
+    var fileStream = fs.createReadStream(file.path);
+
+    fileStream.on('open', function () {
+
+  s3.putObject({
+    Bucket: 'bassomisbucket/photos',
+    Key: file.name,
+    Body: fileStream
+  }, function (err) {
+    if (err) { throw err; }
+  });
+}); 
 })
 
 

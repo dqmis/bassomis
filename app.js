@@ -26,11 +26,13 @@ app.use(bodyParser.json());
 
 const categories = require('./routes/categories');
 const posts = require('./routes/posts');
+const users = require('./routes/users');
 
 app.use('/categories', categories);
 app.use('/posts', posts);
+app.use('/users', users);
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 
 
 

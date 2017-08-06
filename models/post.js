@@ -45,7 +45,7 @@ const Post = module.exports = mongoose.model('Post', PostSchema);
 
 module.exports.getPostsByCategory = function(catId, callback){
     const query = {category: catId};
-    Post.find(query, callback);
+    Post.find(query, callback).sort({initialized: -1});
 };
 
 module.exports.getPostsByCategoryLimited = function(catId, callback){
@@ -76,8 +76,8 @@ module.exports.removePost = function(id, callback){
     Post.remove(query, callback);
 };
 
-module.exports.updatePost = function(id, category, title, intro, content, image, isImportant,  callback, dateEdited){
-    const query = ({_id: id}, {$set: {
+module.exports.updatePost = function(id, category, title, intro, content, image, isImportant, dateEdited){
+    Post.findByIdAndUpdate(id, {$set: {
         title: title,
         category: category,
         intro: intro,
@@ -85,6 +85,7 @@ module.exports.updatePost = function(id, category, title, intro, content, image,
         image: image,
         isImportant: isImportant,
         dateEdited: dateEdited
-    }});
-    Post.update(query, callback);
+    }}, { new: true }, function (err, Post) {
+  if (err) return handleError(err);
+});
 }
