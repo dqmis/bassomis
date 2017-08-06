@@ -35,8 +35,9 @@ app.use('/users', users);
 const port = process.env.PORT || 8080;
 
 
+process.env.PWD = process.cwd();
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(process.env.PWD, 'public')));
 
 
 app.get('/', (req, res) => {
