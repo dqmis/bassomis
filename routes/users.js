@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
-const User = require('../models/User');
+const User = require('../../models/User');
 
 router.post('/register', (req, res, next) => {
     let newUser = new User({
