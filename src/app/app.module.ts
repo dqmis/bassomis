@@ -13,7 +13,8 @@ import { StoryComponent } from './components/story/story.component';
 import { LoginComponent } from './components/admin/login/login.component';
 import { CategoriesComponent } from './components/admin/categories/categories.component';
 import { AdminNavbarComponent } from './components/admin/admin-navbar/admin-navbar.component';
-import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
+import { UserService } from './services/user.service';
  
 import {CategoriesService} from './services/categories.service';
 import {MainNewsService} from './services/main-news.service';
@@ -23,18 +24,24 @@ import { PostsListComponent } from './components/Admin/posts-list/posts-list.com
 import { FooterComponent } from './components/footer/footer.component';
 import { PlatformComponent } from './components/platform/platform.component';
 import { FullNavbarComponent } from './components/full-navbar/full-navbar.component';
+import { CategoryPostsComponent } from './components/category-posts/category-posts.component';
+import { LazyLoadImageModule } from 'ng2-lazyload-image';
+import { AboutComponent } from './components/about/about.component';
+import { UsersComponent } from './components/Admin/users/users.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'main-news', pathMatch: 'full'},
-  {path: 'main-news', component: MainNewsComponent, children: [
-    {path: '', component: NewPostsComponent}
-  ]},
+  {path: '', component: MainNewsComponent},
   {path: 'story/:id', component: StoryComponent},
-  {path: 'admin/login', component: LoginComponent},
-  {path: 'admin', component: DashboardComponent},
-  {path: 'admin/posts', component: PostsListComponent},
-  {path: 'admin/posts/create', component: CreatePostComponent},
-  {path: 'admin/posts/edit/:id', component: EditPostComponent},
+  {path: 'category/:id', component: CategoryPostsComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'admin', redirectTo: 'admin/categories', pathMatch: 'full', canActivate: [AuthGuard]},
+  {path: 'admin/categories', component: CategoriesComponent, canActivate: [AuthGuard]},
+  {path: 'admin/posts', component: PostsListComponent, canActivate: [AuthGuard]},
+  {path: 'admin/posts/create', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {path: 'admin/posts/edit/:id', component: EditPostComponent, canActivate: [AuthGuard]},
+  {path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard]},
+  {path: '**', redirectTo: ''}
 ];
 
 export const aboutRouting: ModuleWithProviders = RouterModule.forChild(appRoutes);
@@ -49,21 +56,26 @@ export const aboutRouting: ModuleWithProviders = RouterModule.forChild(appRoutes
     LoginComponent,
     CategoriesComponent,
     AdminNavbarComponent,
-    DashboardComponent,
     CreatePostComponent,
     EditPostComponent,
     PostsListComponent,
     FooterComponent,
     PlatformComponent,
-    FullNavbarComponent
+    FullNavbarComponent,
+    CategoryPostsComponent,
+    AboutComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
+    LazyLoadImageModule,
     HttpModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [CategoriesService, MainNewsService],
+  providers: [CategoriesService, MainNewsService, UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 

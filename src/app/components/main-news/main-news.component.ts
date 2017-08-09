@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MainNewsService} from '../../services/main-news.service';
 import {Post} from '../../interfaces/post';
-
+import { LazyLoadImageModule } from 'ng2-lazyload-image';
 
 @Component({
   moduleId: module.id.toString(),
@@ -17,7 +17,14 @@ export class MainNewsComponent implements OnInit {
   post: Post;
   imgSrc: string;
 
-  constructor(private mainPostService: MainNewsService) { }
+  constructor(private mainPostService: MainNewsService) { 
+    if (window.matchMedia("(min-width: 1800px)").matches) {
+      document.body.style.backgroundImage = "url('/assets/background.png')";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundSize = "contain";
+    }
+  }
+    image = '/assets/load.jpg';
 
   ngOnInit() {
     this.getPosts();

@@ -1,0 +1,32 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container">
+  <div class="row categories-edit">
+    <div *ngIf="errorBox == true" class="alert alert-danger">
+          Užpildykite visus laukelius!
+    </div>
+    <div *ngIf="passwordBox == true" class="alert alert-danger">
+          Slaptažodžiai nesutampa!
+    </div>
+    <div class="col-sm-12 col-md-7 offset-md-1">
+      <ul class="cat-list">
+        <li class="add">Vartotojai</li>
+        <li *ngFor="let user of users" class="cat-li">
+          <p class="li-text err">{{user?.username}}</p>
+          <span class="buttons">
+            <button (click)="delete(user._id)" class="delete"><i class="material-icons">delete</i></button>
+          </span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4 cat-edit">
+      <h2 class="editor">Pridėti naują vartotoją <span class="add"><i (click)="register()" class="material-icons">add</i></span></h2>
+      <div class="editor">
+        <input class="add" type="text" [(ngModel)]="name" placeholder="Vardas" />
+        <input class="add" type="text" [(ngModel)]="username"  placeholder="Vartotojo vardas">
+        <input class="add" type="password" [(ngModel)]="password"  placeholder="Slaptažodis" />
+        <input class="add" type="password" [(ngModel)]="rPassword" placeholder="Pakartokite slaptažodį" />
+      </div>
+    </div>
+  </div>
+</div>
+

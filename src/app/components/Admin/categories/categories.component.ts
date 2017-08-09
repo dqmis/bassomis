@@ -12,11 +12,18 @@ export class CategoriesComponent implements OnInit {
    categories: Category[];
    errorMessage: string;
    selectedCategory: Category;
+   newCat: Category;
 
-  constructor(private categoriesService: CategoriesService) { }
+  constructor(private categoriesService: CategoriesService) {
+
+  }
 
   ngOnInit() {
     this.getCategories();
+  }
+
+  afterFocusEdit(){
+    this.selectedCategory = null;
   }
 
   getCategories(){
@@ -28,9 +35,9 @@ export class CategoriesComponent implements OnInit {
     )
   }
 
-  delete(id: Category, index){
-    this.categoriesService.sendToDelete(id._id).subscribe();
-    this.getCategories();
+  delete(id: string){
+    this.categories = this.categories.filter(item => item._id !== id);
+    this.categoriesService.sendToDelete(id).subscribe();
   }
 
 
@@ -38,11 +45,11 @@ export class CategoriesComponent implements OnInit {
     this.selectedCategory = category;
   }
 
-  addCategory(title: string): void{
+  addCategory(title: string, about: string): void{
     title = title.slice(0,19);
-    console.log(title);
-    this.categoriesService.addCategory(title).subscribe();
-    this.getCategories();
+    var cat = {title: title, about: about, _id: '5'};
+    this.categories.push(cat);
+    this.categoriesService.addCategory(title, about).subscribe();
   }
 
   afterFocus(category: Category){

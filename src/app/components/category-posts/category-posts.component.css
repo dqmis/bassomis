@@ -10,8 +10,12 @@ h3.main-story-title{
     font-weight: bold;
     font-size: 2.1rem;
     margin-top: 15px;
+    
 }
 
+h3.new-subtitle{
+    margin: 0;
+}
 
 p.intro{
     color: #424242;
@@ -48,6 +52,27 @@ a:hover{
      margin-bottom: 20px;
 }
 
+
+
+h1.news-title{
+    font-size: 4rem;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: none;
+}
+
+a.more{
+    float: right;
+    margin-top: 55px;
+    font-size: 1.4rem;
+    color: #616161;
+    letter-spacing: -.04em!important;
+}
+
+.container{
+    margin-top: 80px;
+}
+
 @media screen and (max-width: 456px) {
     p.intro{
         display: none;
@@ -59,30 +84,30 @@ a:hover{
 
     .main-post-text{
         padding: 0;
+        
+    }
+
+    .container{
+        margin-top: 80px;
+    }
+
+    .cnt{
+        margin-top: 30px;
+    }
+
+    h1.news-title{
+        margin: 0;
+        font-size: 2.6rem;
+    }
+
+    h3.new-subtitle{
+        font-size: 2.1rem;
+    }
+
+    .border{
+        border-bottom: 1px solid #E0E0E0;
     }
 }
-
-h1.news-title{
-    font-size: 2.5rem;
-    font-weight: bold;
-    display: inline-block;
-}
-
-a.more{
-    float: right;
-    margin-top: 57px;
-    font-size: 1.2rem;
-    color: #757575;
-    letter-spacing: -.06em!important;
-}
-
-div.border-style{
-    padding: 0;
-    margin: 0 15px;
-    border-bottom: 1px solid #E0E0E0;
-}
-
-
 
 @media screen and (max-width: 767px) {
     .main-post-text{
@@ -95,5 +120,3 @@ overflow: hidden;
    height: 62px; 
     }
 }
-
-

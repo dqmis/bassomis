@@ -17,7 +17,13 @@ export class StoryComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private postController: MainNewsService
-  ) { }
+  ) {
+      if (window.matchMedia("(min-width: 1800px)").matches) {
+        document.body.style.backgroundImage = "url('/assets/background.png')";
+        document.body.style.backgroundRepeat = "no-repeat";
+        document.body.style.backgroundSize = "contain";
+      } 
+  }
 
   ngOnInit() {
     this.getId();
@@ -32,7 +38,6 @@ export class StoryComponent implements OnInit {
   }
 
   getPostInfo(){
-    console.log('mam');
     this.postController.getPostById(this.postId).subscribe(
       post =>{
         this.post = post;
@@ -41,4 +46,7 @@ export class StoryComponent implements OnInit {
     );
   }
 
+  ngOnDestroy(){
+    document.body.style.backgroundImage = "none";
+  }
 }

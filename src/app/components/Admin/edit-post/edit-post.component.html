@@ -1,23 +1,31 @@
+<app-admin-navbar></app-admin-navbar>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <form>
-        <label for="category">Kategorija</label>
+    <div class="col-md-10 col-md-offset-1 create-form">
+      <form enctype="multipart/form-data">
+        <div *ngIf="errorBox == true" class="alert alert-danger">
+          Užpildykite visus laukelius!
+        </div>
+        <div *ngIf="sucessBox == true" class="alert alert-success">
+          Straipsnis išsaugotas!
+        </div>
+        <input #title type="text" placeholder="Pavadinimas" id="title" value="{{post?.title}}"/>
+        <input #intro type="text" placeholder="Intro" id="intro" value="{{post?.intro}}"/>
+        <div [froalaEditor] [(froalaModel)]="editorContent" class="editor"></div>
+        <label for="category" class="category">Kategorija</label>
         <select id="category" [(ngModel)]="category" name="category">
-          <option *ngFor="let category of categories" [ngValue]="category._id">{{category.title}}</option>
+          <option *ngFor="let category of categories" [selected]="category?._id === post?.category" [ngValue]="category?._id">{{category?.title}}</option>
         </select>
-        <label for="title">Pavadinimas</label>
-        <input #title type="text" id="title" value="post.title"/>
-        <label for="intro">Intro</label>
-        <input #intro type="text" id="intro" value="post.intro"/>
-        <label for="content">Tekstas</label>
-        <textarea #content rows="50" id="content" value="post.content"></textarea>
-        <label for="photo">Nuotrauka</label>
-        <input #photo type="file" id="photo" value="post.photo"/>
+        <br>
+        <label for="photo" class="photo">Nuotrauka</label>
+        <img src="{{post?.image}}" class="upload">
+        <input #photo type="file" id="photo" (change)="fileChange($event)"/>
         <label for="isImportant">Svarbus</label>
-        <input type="checkbox" [(ngModel)]="isImportant" name="checkbox"/>
-        <button (click)="save(category, title.value, intro.value, content.value, photo.value)">Išsaugoti</button>
+        <input type="checkbox" id="important" [(ngModel)]="isImportant" [checked]="post?.isImportant === true" name="checkbox"/>
+        <button (click)="save(title.value, intro.value)">Išsaugoti</button>
       </form>
     </div>
   </div>
 </div>
+
+

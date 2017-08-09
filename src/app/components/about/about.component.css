@@ -1,0 +1,34 @@
+.about-top{
+    margin-top: 150px;
+    text-align: center;
+}
+
+h1{
+    font-size: 3.2rem;
+    margin: 15px 0;
+    color: #424242;
+}
+
+h1.imp{
+    color: #212121;
+    padding: 10px;
+    font-size: 3.9rem;
+}
+
+span.background{
+    background-color: #212121;
+    padding: 0 15px;
+    color: white;
+}
+
+h1.th{
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 450px) {
+    .about-top{
+        display: none;
+    }
+}

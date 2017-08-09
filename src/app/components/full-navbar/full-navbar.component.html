@@ -10,8 +10,8 @@
       </div>
       <div class="col-xs-6">
           <ul class="nav navbar-nav navbar-right icons">
-            <li><a href="#" class="icon"><i class="mdi mdi-facebook"></i></a></li>
-            <li><a href="#" class="icon"><i class="mdi mdi-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/bassomismusicblog/" class="icon"><i class="mdi mdi-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/bassomis.musicblog/" class="icon"><i class="mdi mdi-instagram"></i></a></li>
           </ul>
      </div>
     </div>
@@ -19,7 +19,7 @@
       <div class="col-xs-12">
         <ul class="categories">
           <li class="category" *ngFor="let category of categories">
-            <a href="#" class="category">{{category.title}}</a>
+            <a href="#" class="category" [routerLink]="['/category', category._id]">{{category.title}}</a>
           </li>
         </ul>
       </div>

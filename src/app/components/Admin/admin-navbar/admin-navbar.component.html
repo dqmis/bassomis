@@ -1,18 +1,21 @@
-<nav class="navbar navbar-toggleable-sm fixed-top navbar-light bg-faded container">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <i class="material-icons">menu</i>
-  </button>
-  <a class="navbar-brand" href="#">
-    <img src="/assets/logo.png" width="120" height="30" class="d-inline-block align-top" alt="">
-  </a>
-  <div class="collapse navbar-collapse justify-content-md-center" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Kategorijos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Straipsniai</a>
-      </li>
+<nav class="navbar navbar-inverse nav-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">bassomis admin</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="userService.loggedIn()" class="user">Labas, {{user?.name}}</li>
+      <li *ngIf="userService.loggedIn()"><a (click)="logout()"><i class="material-icons">power_settings_new</i> Atsijungti</a></li>
     </ul>
   </div>
 </nav>
+<nav class="navbar navbar-inverse nav-bottom">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li *ngIf="userService.loggedIn()"><a [routerLink]="['/admin/categories']">Kategorijos</a></li>
+      <li *ngIf="userService.loggedIn()"><a [routerLink]="['/admin/posts']">Straipsniai</a></li>
+      <li *ngIf="userService.loggedIn()"><a [routerLink]="['/admin/users']">Vartotojai</a></li>
+    </ul>
+  </div>
+</nav>
+

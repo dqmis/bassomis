@@ -1,24 +1,23 @@
 <app-full-navbar></app-full-navbar> 
-<div class="container">
+<div class="container" *ngIf="post">
   <div class="row">
     <div class="col-xs-12 img-wrap">
-      <img src="assets/uploads/photos/{{post.image}}" class="img-fluid main-story-img" alt="Responsive image">
+      <img src="/assets/load.jpg" [lazyLoad]="post.image" [offset]="offset"  class="img-fluid main-story-img">
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
     <div class="story-title col-md-8 col-md-offset-2">
-      <h1 class="title">{{post.title}}</h1>
-      <h2 class="sub-title">{{post.intro}}</h2>
-      <h3 class="time">{{post.dateEdited}}</h3>
+      <h1 class="title">{{post?.title}}</h1>
+      <h2 class="sub-title">{{post?.intro}}</h2>
+      <h3 class="time">{{post?.dateEdited}}</h3>
     </div>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h3 class="text">{{post.content}}</h3>
+    <div class="col-md-8 col-md-offset-2 text" [innerHtml]="post?.content">
     </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 li{
     list-style: none;
+    margin: 0;
 }
 
 span.buttons{
@@ -7,37 +8,47 @@ span.buttons{
     float: right;
 }
 
+li.title{
+    background-color: #212121;
+    color: white;
+}
 
 
 button:hover{
     cursor: pointer;
-    opacity: 0.8;
 }
+
+
 
 button{
     margin-left: 10px;
     border: none;
     border-radius: 50%;
-    color: white;
+    color: #424242;
     background-color: white;
 }
 
 
 span.buttons{
-    width: 40%;
+    width: 15%;
 }
 
 p{
     display: inline-block;
     width: 60%;
-    color: #424242;
+    color: #212121;
+    white-space: nowrap;
+}
+
+p.title{
+     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 li{
     padding-top: 8px;
     padding-left: 10px;
     padding-right: 6px;
-    margin-bottom: 15px;
+ 
 }
 
 button.delete:hover{
@@ -46,6 +57,7 @@ button.delete:hover{
 
 ul{
     list-style: none;
+    margin-top: 100px;
 }
 
 h2{
@@ -58,11 +70,29 @@ h2{
 
 li{
     font-size: 20px;
-    font-weight: bold;
-
+    border: 1px solid #E0E0E0;
+    overflow: hidden;
 }
 
 i{
     padding: 6.5px 2.5px;
     color: #424242;
+}
+
+i:hover{
+    cursor: pointer;
+}
+
+span.add{
+    float: right;
+    color: white;
+}
+
+i.add{
+    color: white;
+    padding-top: 0;
+}
+
+button:focus{
+    outline: none;
 }

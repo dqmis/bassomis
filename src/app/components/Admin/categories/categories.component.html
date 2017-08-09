@@ -1,31 +1,31 @@
+<app-admin-navbar></app-admin-navbar>
 <div class="container">
   <div class="row categories-edit">
-    <div class="col-md-6 offset-md-1">
+    <div class="col-md-7 offset-md-1 col-sm-12">
       <ul class="cat-list">
+        <li class="add">Kategorijos</li>
         <li *ngFor="let category of categories" class="cat-li">
-          <p class="li-text">{{category.title}}</p>
+          <p class="li-text err">{{category.title}}</p>
           <span class="buttons">
-            <button (click)="onSelect(category)" class="edit"><i class="material-icons">mode_edit</i></button>
-            <button (click)="delete(category, index)" class="delete"><i class="material-icons">delete</i></button>
+            <button (click)="onSelect(category)" class="edit"><i class="material-icons edit">mode_edit</i></button>
+            <button (click)="delete(category._id)" class="delete"><i class="material-icons">delete</i></button>
           </span>
         </li>
       </ul>
       <p *ngIf="categories?.length < 1" class="err">Nėra sukūrtų kategorijų</p>
     </div>
-    <div class="col-md-4">
-      <h2 class="editor">Pridėti naują kategoriją</h2>
+    <div class="col-md-4 cat-edit">
+      <h2 class="editor">Pridėti naują kategoriją <span class="add"><i (click)="addCategory(titleInput.value, aboutInput.value)" class="material-icons">add</i></span></h2>
       <div class="editor">
-        <input type="text" #titleInput placeholder="Pavadinimas" />
-        <span>
-          <button class="add" (click)="addCategory(titleInput.value)">
-            <i class="material-icons">add</i>
-          </button>
-        </span>
+        <input class="add" type="text" #titleInput placeholder="Pavadinimas" />
+        <input class="add" type="text" #aboutInput placeholder="Apie" />
       </div>
     </div>
-    <div *ngIf="selectedCategory" class="col-md-4 offset-md-4 cat-edit">
-      <h2 class="editor">Redaguokite kategoriją:</h2>
+    <div *ngIf="selectedCategory" class="col-md-4 offset-md-4 cat-edit right">
+      <h2 class="editor">Redaguoti kategoriją</h2>
       <input [(ngModel)]="selectedCategory.title" placeholder="title" class="edit-cat" (focusout)="afterFocus(selectedCategory)"/>
+      <input [(ngModel)]="selectedCategory.about" placeholder="about" class="edit-cat" (focusout)="afterFocus(selectedCategory)"/>
     </div>
   </div>
 </div>
+

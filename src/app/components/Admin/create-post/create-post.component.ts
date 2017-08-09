@@ -3,6 +3,8 @@ import {MainNewsService} from '../../../services/main-news.service';
 import {Post} from '../../../interfaces/post';
 import {CategoriesService} from '../../../services/categories.service';
 import {Category} from '../../../interfaces/category';
+import {Router} from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-create-post',
@@ -13,18 +15,24 @@ export class CreatePostComponent implements OnInit {
   categories: Category[];
   category: string;
   errorMessage: string;
+  errorBox: boolean;
+  sucessBox: boolean;
   isImportant: boolean;
   post: Post;
+  public editorContent: string
   photo: any;
 
   constructor(
     private postService: MainNewsService,
     private categoryService: CategoriesService,
+    private router: Router
     
   ) { }
 
   ngOnInit() {
     this.isImportant = false;
+    this.sucessBox = false;
+    this.errorBox = false;
     this.getCategories();
   }
 
@@ -49,16 +57,33 @@ export class CreatePostComponent implements OnInit {
      return text;
 }
 
-  save(category, title, intro, content){
+  save(category, title, intro){
     var photoName = this.makeid();
-    this.postService.uploadPhoto(this.photo, photoName).subscribe();
-    this.postService.addPost(category, title, intro, content, photoName + '.jpeg', this.isImportant).subscribe(() => {console.log('sent')});
+
+    if(category && title && intro && this.editorContent && this.photo){
+      var photoTitle = 'https://s3.amazonaws.com/bassomisbucket/photos/' + this.photo.name;
+      this.postService.uploadPhoto(this.photo).subscribe();
+      this.postService.addPost(category, title, intro, this.editorContent,  photoTitle, this.isImportant).subscribe(() => {return 0});
+      this.errorBox = false;
+      this.sucessBox = true;
+      setTimeout(()=>{      this.router.navigateByUrl('/admin/posts');}, 2000);
+
+    }
+    else{
+      this.errorBox = true;
+      setTimeout(()=> {this.errorBox = false}, 2000 )
+    }
   }
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
     this.photo = fileList[0];
   }
+
+  alertBox(box){
+    return box = false;
+  }
+
 
 
 

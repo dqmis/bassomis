@@ -48,3 +48,9 @@ ul.icons{
         padding-top: 4.5px;
     }
 }
+
+@media screen and (max-width: 450px) {
+    .navbar{
+        padding-bottom: 0;
+    }
+}

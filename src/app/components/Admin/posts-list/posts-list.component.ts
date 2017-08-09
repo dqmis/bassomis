@@ -29,10 +29,10 @@ export class PostsListComponent implements OnInit {
     );
   }
 
-  deletePost(id: string){
-    console.log(id);
-    this.postService.sendToDelete(id).subscribe();
-    this.getPostList();
+  deletePost(post: Post){
+    this.postService.deltePhoto(post.image).subscribe();
+    this.postService.sendToDelete(post._id).subscribe();
+    this.posts = this.posts.filter(item => item._id !== post._id);
   }
 
 }
