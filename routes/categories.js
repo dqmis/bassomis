@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const config = require('../config/database');
 const Category = require('../models/category');
+const passport = require('passport');
 
 // Create Category
-router.post('/create', (req, res, next) => {
+router.post('/create', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     let newCategory = new Category({
         title: req.body.title,
         about: req.body.about
@@ -22,7 +23,7 @@ router.post('/create', (req, res, next) => {
 });
 
 // Delete Category
-router.post('/delete', (req, res, next) => {
+router.post('/delete', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const id = req.body.id;
     Category.removeCategory(id, (err, category) =>{
         if(err){
@@ -42,7 +43,7 @@ router.get('/get/:id', (req, res, next) => {
 })
 
 // Update Category
-router.post('/update', (req, res, next) => {
+router.post('/update', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const id = req.body.id;
     const title = req.body.title;
     const about = req.body.about;

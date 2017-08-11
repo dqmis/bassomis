@@ -9,7 +9,9 @@ const userSchema = mongoose.Schema({
     },
     username: {
         type: String,
-        required: true
+        required: true,
+        index: true,
+        unique: true
     },
     password: {
         type: String,
@@ -36,6 +38,23 @@ module.exports.addUser = function(newUser, callback){
             newUser.save(callback);
         })
     })
+}
+
+module.exports.removeUser = function(id, callback){
+    const query = ({_id: id});
+    console.log(id);
+    User.remove(query, callback);
+};
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+  bcrypt.compare(candidatePassword, hash, (err, isMatch) => {
+    if(err) throw err;
+    callback(null, isMatch);
+  });
+}
+
+module.exports.getAllUsers = function(callback){
+    User.find({}, callback);
 }
 
  

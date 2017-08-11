@@ -40,7 +40,9 @@ module.exports.removeCategory = function(id, callback){
 };
 
 module.exports.updateCategory = function(id, title, about, callback){
-    const query = ({_id: id}, {$set: {title: title, about: about}});
-    Category.update(query, callback);
+    const query = ({$set: {title: title, about: about}});
+        Category.findByIdAndUpdate(id, query, { new: true }, function (err, Post) {
+            if (err) return handleError(err);
+        })
 }
 
