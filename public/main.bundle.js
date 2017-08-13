@@ -217,7 +217,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/Admin/create-post/create-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-admin-navbar></app-admin-navbar>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 create-form\">\n      <form enctype=\"multipart/form-data\">\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\n          Užpildykite visus laukelius!\n        </div>\n        <div *ngIf=\"sucessBox == true\" class=\"alert alert-success\">\n          Straipsnis išsaugotas!\n        </div>\n        <input #title type=\"text\" placeholder=\"Pavadinimas\" id=\"title\"/>\n        <input #intro type=\"text\" placeholder=\"Intro\" id=\"intro\"/>\n        <div [froalaEditor] [(froalaModel)]=\"editorContent\" class=\"editor\"></div>\n        <label for=\"category\" class=\"category\">Kategorija</label>\n        <select id=\"category\" [(ngModel)]=\"category\" name=\"category\">\n          <option *ngFor=\"let category of categories\" [ngValue]=\"category._id\">{{category.title}}</option>\n        </select>\n        <br>\n        <label for=\"photo\" class=\"photo\">Nuotrauka</label>\n        <input #photo type=\"file\" id=\"photo\" (change)=\"fileChange($event)\"/>\n        <label for=\"isImportant\">Svarbus</label>\n        <input type=\"checkbox\" id=\"important\" [(ngModel)]=\"isImportant\" name=\"checkbox\"/>\n        <button (click)=\"save(category, title.value, intro.value)\">Išsaugoti</button>\n      </form>\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<app-admin-navbar></app-admin-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10 col-md-offset-1 create-form\">\r\n      <form enctype=\"multipart/form-data\">\r\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\r\n          Užpildykite visus laukelius!\r\n        </div>\r\n        <div *ngIf=\"sucessBox == true\" class=\"alert alert-success\">\r\n          Straipsnis išsaugotas!\r\n        </div>\r\n        <input #title type=\"text\" placeholder=\"Pavadinimas\" id=\"title\"/>\r\n        <input #intro type=\"text\" placeholder=\"Intro\" id=\"intro\"/>\r\n        <div [froalaEditor] [(froalaModel)]=\"editorContent\" class=\"editor\"></div>\r\n        <label for=\"category\" class=\"category\">Kategorija</label>\r\n        <select id=\"category\" [(ngModel)]=\"category\" name=\"category\">\r\n          <option *ngFor=\"let category of categories\" [ngValue]=\"category._id\">{{category.title}}</option>\r\n        </select>\r\n        <br>\r\n        <label for=\"photo\" class=\"photo\">Nuotrauka</label>\r\n        <input #photo type=\"file\" id=\"photo\" (change)=\"fileChange($event)\"/>\r\n        <label for=\"isImportant\">Svarbus</label>\r\n        <input type=\"checkbox\" id=\"important\" [(ngModel)]=\"isImportant\" name=\"checkbox\"/>\r\n        <button (click)=\"save(category, title.value, intro.value)\">Išsaugoti</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -328,7 +328,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/Admin/edit-post/edit-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-admin-navbar></app-admin-navbar>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-10 col-md-offset-1 create-form\">\n      <form enctype=\"multipart/form-data\">\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\n          Užpildykite visus laukelius!\n        </div>\n        <div *ngIf=\"sucessBox == true\" class=\"alert alert-success\">\n          Straipsnis išsaugotas!\n        </div>\n        <input #title type=\"text\" placeholder=\"Pavadinimas\" id=\"title\" value=\"{{post?.title}}\"/>\n        <input #intro type=\"text\" placeholder=\"Intro\" id=\"intro\" value=\"{{post?.intro}}\"/>\n        <div [froalaEditor] [(froalaModel)]=\"editorContent\" class=\"editor\"></div>\n        <label for=\"category\" class=\"category\">Kategorija</label>\n        <select id=\"category\" [(ngModel)]=\"category\" name=\"category\">\n          <option *ngFor=\"let category of categories\" [selected]=\"category?._id === post?.category\" [ngValue]=\"category?._id\">{{category?.title}}</option>\n        </select>\n        <br>\n        <label for=\"photo\" class=\"photo\">Nuotrauka</label>\n        <img src=\"{{post?.image}}\" class=\"upload\">\n        <input #photo type=\"file\" id=\"photo\" (change)=\"fileChange($event)\"/>\n        <label for=\"isImportant\">Svarbus</label>\n        <input type=\"checkbox\" id=\"important\" [(ngModel)]=\"isImportant\" [checked]=\"post?.isImportant === true\" name=\"checkbox\"/>\n        <button (click)=\"save(title.value, intro.value)\">Išsaugoti</button>\n      </form>\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<app-admin-navbar></app-admin-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10 col-md-offset-1 create-form\">\r\n      <form enctype=\"multipart/form-data\">\r\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\r\n          Užpildykite visus laukelius!\r\n        </div>\r\n        <div *ngIf=\"sucessBox == true\" class=\"alert alert-success\">\r\n          Straipsnis išsaugotas!\r\n        </div>\r\n        <input #title type=\"text\" placeholder=\"Pavadinimas\" id=\"title\" value=\"{{post?.title}}\"/>\r\n        <input #intro type=\"text\" placeholder=\"Intro\" id=\"intro\" value=\"{{post?.intro}}\"/>\r\n        <div [froalaEditor] [(froalaModel)]=\"editorContent\" class=\"editor\"></div>\r\n        <label for=\"category\" class=\"category\">Kategorija</label>\r\n        <select id=\"category\" [(ngModel)]=\"category\" name=\"category\">\r\n          <option *ngFor=\"let category of categories\" [selected]=\"category?._id === post?.category\" [ngValue]=\"category?._id\">{{category?.title}}</option>\r\n        </select>\r\n        <br>\r\n        <label for=\"photo\" class=\"photo\">Nuotrauka</label>\r\n        <img src=\"{{post?.image}}\" class=\"upload\">\r\n        <input #photo type=\"file\" id=\"photo\" (change)=\"fileChange($event)\"/>\r\n        <label for=\"isImportant\">Svarbus</label>\r\n        <input type=\"checkbox\" id=\"important\" [(ngModel)]=\"isImportant\" [checked]=\"post?.isImportant === true\" name=\"checkbox\"/>\r\n        <button (click)=\"save(title.value, intro.value)\">Išsaugoti</button>\r\n      </form>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -452,7 +452,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/Admin/posts-list/posts-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-admin-navbar></app-admin-navbar>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12\">\n      <ul>\n        <li class=\"title\">Straipsniai <span class=\"add\"><a [routerLink]=\"['/admin/posts/create']\"><i class=\"material-icons add\">add</i></a></span></li>\n        <li class=\"post-li\" *ngFor=\"let post of posts\">\n          <p class=\"title\">{{post.title}}</p>\n          <span class=\"buttons\">\n            <a [routerLink]=\"['/admin/posts/edit', post._id]\" ><button class=\"edit\"><i class=\"material-icons\">mode_edit</i></button></a>\n            <button class=\"delete\" (click)=\"deletePost(post)\"><i class=\"material-icons\">delete</i></button>\n          </span>\n        </li>\n      </ul>\n    </div>\n  </div>\n</div>"
+module.exports = "<app-admin-navbar></app-admin-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12\">\r\n      <ul>\r\n        <li class=\"title\">Straipsniai <span class=\"add\"><a [routerLink]=\"['/admin/posts/create']\"><i class=\"material-icons add\">add</i></a></span></li>\r\n        <li class=\"post-li\" *ngFor=\"let post of posts\">\r\n          <p class=\"title\">{{post.title}}</p>\r\n          <span class=\"buttons\">\r\n            <a [routerLink]=\"['/admin/posts/edit', post._id]\" ><button class=\"edit\"><i class=\"material-icons\">mode_edit</i></button></a>\r\n            <button class=\"delete\" (click)=\"deletePost(post)\"><i class=\"material-icons\">delete</i></button>\r\n          </span>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -531,7 +531,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/Admin/users/users.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-admin-navbar></app-admin-navbar>\n<div class=\"container\">\n  <div class=\"row categories-edit\">\n    <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\n          Užpildykite visus laukelius!\n    </div>\n    <div *ngIf=\"passwordBox == true\" class=\"alert alert-danger\">\n          Slaptažodžiai nesutampa!\n    </div>\n    <div class=\"col-sm-12 col-md-7 offset-md-1\">\n      <ul class=\"cat-list\">\n        <li class=\"add\">Vartotojai</li>\n        <li *ngFor=\"let user of users\" class=\"cat-li\">\n          <p class=\"li-text err\">{{user?.username}}</p>\n          <span class=\"buttons\">\n            <button (click)=\"delete(user._id)\" class=\"delete\"><i class=\"material-icons\">delete</i></button>\n          </span>\n        </li>\n      </ul>\n    </div>\n    <div class=\"col-md-4 cat-edit\">\n      <h2 class=\"editor\">Pridėti naują vartotoją <span class=\"add\"><i (click)=\"register()\" class=\"material-icons\">add</i></span></h2>\n      <div class=\"editor\">\n        <input class=\"add\" type=\"text\" [(ngModel)]=\"name\" placeholder=\"Vardas\" />\n        <input class=\"add\" type=\"text\" [(ngModel)]=\"username\"  placeholder=\"Vartotojo vardas\">\n        <input class=\"add\" type=\"password\" [(ngModel)]=\"password\"  placeholder=\"Slaptažodis\" />\n        <input class=\"add\" type=\"password\" [(ngModel)]=\"rPassword\" placeholder=\"Pakartokite slaptažodį\" />\n      </div>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<app-admin-navbar></app-admin-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row categories-edit\">\r\n    <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\r\n          Užpildykite visus laukelius!\r\n    </div>\r\n    <div *ngIf=\"passwordBox == true\" class=\"alert alert-danger\">\r\n          Slaptažodžiai nesutampa!\r\n    </div>\r\n    <div class=\"col-sm-12 col-md-7 offset-md-1\">\r\n      <ul class=\"cat-list\">\r\n        <li class=\"add\">Vartotojai</li>\r\n        <li *ngFor=\"let user of users\" class=\"cat-li\">\r\n          <p class=\"li-text err\">{{user?.username}}</p>\r\n          <span class=\"buttons\">\r\n            <button (click)=\"delete(user._id)\" class=\"delete\"><i class=\"material-icons\">delete</i></button>\r\n          </span>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n    <div class=\"col-md-4 cat-edit\">\r\n      <h2 class=\"editor\">Pridėti naują vartotoją <span class=\"add\"><i (click)=\"register()\" class=\"material-icons\">add</i></span></h2>\r\n      <div class=\"editor\">\r\n        <input class=\"add\" type=\"text\" [(ngModel)]=\"name\" placeholder=\"Vardas\" />\r\n        <input class=\"add\" type=\"text\" [(ngModel)]=\"username\"  placeholder=\"Vartotojo vardas\">\r\n        <input class=\"add\" type=\"password\" [(ngModel)]=\"password\"  placeholder=\"Slaptažodis\" />\r\n        <input class=\"add\" type=\"password\" [(ngModel)]=\"rPassword\" placeholder=\"Pakartokite slaptažodį\" />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -644,7 +644,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/about/about.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 about-top\">\n      <h1 class=\"about imp\">\n        Lietuvių muzikos ateitis, įdomūs žmonės, renginiai ir muzikos mylėtojų gyvenimo nuotykiai.\n      </h1>\n      <h1 class=\"about\">\n         Norime Jus paskatinti domėtis tuo, kas vyksta aplinkui, išgirsti ir pamilti tuos garsus, kuriuos atradome ir mes. \n      </h1>\n      <h1 class=\"imp th\">Skanaus!</h1>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12 about-top\">\r\n      <h1 class=\"about imp\">\r\n        Lietuvių muzikos ateitis, įdomūs žmonės, renginiai ir muzikos mylėtojų gyvenimo nuotykiai.\r\n      </h1>\r\n      <h1 class=\"about\">\r\n         Norime Jus paskatinti domėtis tuo, kas vyksta aplinkui, išgirsti ir pamilti tuos garsus, kuriuos atradome ir mes. \r\n      </h1>\r\n      <h1 class=\"imp th\">Skanaus!</h1>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -705,7 +705,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/admin-navbar/admin-navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-inverse nav-top\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\">bassomis admin</a>\n    </div>\n    <ul class=\"nav navbar-nav navbar-right\">\n      <li *ngIf=\"userService.loggedIn()\" class=\"user\">Labas, {{user?.name}}</li>\n      <li *ngIf=\"userService.loggedIn()\"><a (click)=\"logout()\"><i class=\"material-icons\">power_settings_new</i> Atsijungti</a></li>\n    </ul>\n  </div>\n</nav>\n<nav class=\"navbar navbar-inverse nav-bottom\">\n  <div class=\"container-fluid\">\n    <ul class=\"nav navbar-nav\">\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/categories']\">Kategorijos</a></li>\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/posts']\">Straipsniai</a></li>\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/users']\">Vartotojai</a></li>\n    </ul>\n  </div>\n</nav>\n\n"
+module.exports = "<nav class=\"navbar navbar-inverse nav-top\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <a class=\"navbar-brand\">bassomis admin</a>\r\n    </div>\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n      <li *ngIf=\"userService.loggedIn()\" class=\"user\">Labas, {{user?.name}}</li>\r\n      <li *ngIf=\"userService.loggedIn()\"><a (click)=\"logout()\"><i class=\"material-icons\">power_settings_new</i> Atsijungti</a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n<nav class=\"navbar navbar-inverse nav-bottom\">\r\n  <div class=\"container-fluid\">\r\n    <ul class=\"nav navbar-nav\">\r\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/categories']\">Kategorijos</a></li>\r\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/posts']\">Straipsniai</a></li>\r\n      <li *ngIf=\"userService.loggedIn()\"><a [routerLink]=\"['/admin/users']\">Vartotojai</a></li>\r\n    </ul>\r\n  </div>\r\n</nav>\r\n\r\n"
 
 /***/ }),
 
@@ -782,7 +782,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/categories/categories.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-admin-navbar></app-admin-navbar>\n<div class=\"container\">\n  <div class=\"row categories-edit\">\n    <div class=\"col-md-7 offset-md-1 col-sm-12\">\n      <ul class=\"cat-list\">\n        <li class=\"add\">Kategorijos</li>\n        <li *ngFor=\"let category of categories\" class=\"cat-li\">\n          <p class=\"li-text err\">{{category.title}}</p>\n          <span class=\"buttons\">\n            <button (click)=\"onSelect(category)\" class=\"edit\"><i class=\"material-icons edit\">mode_edit</i></button>\n            <button (click)=\"delete(category._id)\" class=\"delete\"><i class=\"material-icons\">delete</i></button>\n          </span>\n        </li>\n      </ul>\n      <p *ngIf=\"categories?.length < 1\" class=\"err\">Nėra sukūrtų kategorijų</p>\n    </div>\n    <div class=\"col-md-4 cat-edit\">\n      <h2 class=\"editor\">Pridėti naują kategoriją <span class=\"add\"><i (click)=\"addCategory(titleInput.value, aboutInput.value)\" class=\"material-icons\">add</i></span></h2>\n      <div class=\"editor\">\n        <input class=\"add\" type=\"text\" #titleInput placeholder=\"Pavadinimas\" />\n        <input class=\"add\" type=\"text\" #aboutInput placeholder=\"Apie\" />\n      </div>\n    </div>\n    <div *ngIf=\"selectedCategory\" class=\"col-md-4 offset-md-4 cat-edit right\">\n      <h2 class=\"editor\">Redaguoti kategoriją</h2>\n      <input [(ngModel)]=\"selectedCategory.title\" placeholder=\"title\" class=\"edit-cat\" (focusout)=\"afterFocus(selectedCategory)\"/>\n      <input [(ngModel)]=\"selectedCategory.about\" placeholder=\"about\" class=\"edit-cat\" (focusout)=\"afterFocus(selectedCategory)\"/>\n    </div>\n  </div>\n</div>\n\n"
+module.exports = "<app-admin-navbar></app-admin-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row categories-edit\">\r\n    <div class=\"col-md-7 offset-md-1 col-sm-12\">\r\n      <ul class=\"cat-list\">\r\n        <li class=\"add\">Kategorijos</li>\r\n        <li *ngFor=\"let category of categories\" class=\"cat-li\">\r\n          <p class=\"li-text err\">{{category.title}}</p>\r\n          <span class=\"buttons\">\r\n            <button (click)=\"onSelect(category)\" class=\"edit\"><i class=\"material-icons edit\">mode_edit</i></button>\r\n            <button (click)=\"delete(category._id)\" class=\"delete\"><i class=\"material-icons\">delete</i></button>\r\n          </span>\r\n        </li>\r\n      </ul>\r\n      <p *ngIf=\"categories?.length < 1\" class=\"err\">Nėra sukūrtų kategorijų</p>\r\n    </div>\r\n    <div class=\"col-md-4 cat-edit\">\r\n      <h2 class=\"editor\">Pridėti naują kategoriją <span class=\"add\"><i (click)=\"addCategory(titleInput.value, aboutInput.value)\" class=\"material-icons\">add</i></span></h2>\r\n      <div class=\"editor\">\r\n        <input class=\"add\" type=\"text\" #titleInput placeholder=\"Pavadinimas\" />\r\n        <input class=\"add\" type=\"text\" #aboutInput placeholder=\"Apie\" />\r\n      </div>\r\n    </div>\r\n    <div *ngIf=\"selectedCategory\" class=\"col-md-4 offset-md-4 cat-edit right\">\r\n      <h2 class=\"editor\">Redaguoti kategoriją</h2>\r\n      <input [(ngModel)]=\"selectedCategory.title\" placeholder=\"title\" class=\"edit-cat\" (focusout)=\"afterFocus(selectedCategory)\"/>\r\n      <input [(ngModel)]=\"selectedCategory.about\" placeholder=\"about\" class=\"edit-cat\" (focusout)=\"afterFocus(selectedCategory)\"/>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -874,7 +874,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/admin/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-4 col-md-offset-4 col-sm-8 col-sm-offstet-2\">\n        <form class=\"form-signin\">\n          <h2 class=\"form-signin-heading\">Prašome prisijungti</h2>\n            <label for=\"username\" class=\"sr-only\">Vartotojo vardas</label>\n            <input type=\"text\" id=\"username\" class=\"form-control\" placeholder=\"Vartotojo vardas\" [(ngModel)]=\"username\" name=\"user\" autofocus>\n            <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n            <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Slaptažodis\" [(ngModel)]=\"password\" name=\"pasw\">\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" (click)='login()'>Prisijungti</button>\n        </form>\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\n          {{message}}\n        </div>\n        <div *ngIf=\"loginBox == true\" class=\"alert alert-success\">\n          {{message}}\n        </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4 col-sm-8 col-sm-offstet-2\">\r\n        <form class=\"form-signin\">\r\n          <h2 class=\"form-signin-heading\">Prašome prisijungti</h2>\r\n            <label for=\"username\" class=\"sr-only\">Vartotojo vardas</label>\r\n            <input type=\"text\" id=\"username\" class=\"form-control\" placeholder=\"Vartotojo vardas\" [(ngModel)]=\"username\" name=\"user\" autofocus>\r\n            <label for=\"inputPassword\" class=\"sr-only\">Password</label>\r\n            <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Slaptažodis\" [(ngModel)]=\"password\" name=\"pasw\">\r\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" (click)='login()'>Prisijungti</button>\r\n        </form>\r\n        <div *ngIf=\"errorBox == true\" class=\"alert alert-danger\">\r\n          {{message}}\r\n        </div>\r\n        <div *ngIf=\"loginBox == true\" class=\"alert alert-success\">\r\n          {{message}}\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -979,7 +979,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/category-posts/category-posts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 boder\">\n      <h1 class=\"news-title\">{{category?.title}}</h1>\n      <h3 class=\"new-subtitle\">{{category?.about}}</h3>\n    </div>\n  </div>\n</div>\n<div class=\"container cnt\">\n  <div class=\"row\">\n    <div class=\"col-xs-6 col-md-3\" *ngFor=\"let post of posts; let idx=index\">\n      <a [routerLink]=\"['/story', post._id]\">\n        <div class=\"main-post\">\n          <img  src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\"  class=\"img-responsive main-story-img\" alt=\"Responsive image\">\n          <div class=\"main-post-text\">\n            <h3 class=\"main-story-title\">{{post?.title}}</h3>\n            <p class=\"intro\">{{post?.intro}}</p>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<app-navbar></app-navbar>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12 boder\">\r\n      <h1 class=\"news-title\">{{category?.title}}</h1>\r\n      <h3 class=\"new-subtitle\">{{category?.about}}</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container cnt\">\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-6 col-md-3\" *ngFor=\"let post of posts; let idx=index\">\r\n      <a [routerLink]=\"['/story', post._id]\">\r\n        <div class=\"main-post\">\r\n          <img  src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\"  class=\"img-responsive main-story-img\" alt=\"Responsive image\">\r\n          <div class=\"main-post-text\">\r\n            <h3 class=\"main-story-title\">{{post?.title}}</h3>\r\n            <p class=\"intro\">{{post?.intro}}</p>\r\n          </div>\r\n        </div>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1080,7 +1080,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid footer navbar navbar-fixed-bottom\">\n  <div class=\"row\">\n    <div class=\"col-md-8 offset-md-2\">\n      <h3>© 2017 - {{date}}, <a href=\"mailto:bassomis.blog@gmail.com\"> bassomis</a></h3>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container-fluid footer navbar navbar-fixed-bottom\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-8 offset-md-2\">\r\n      <h3>© 2017 - {{date}}, <a href=\"mailto:bassomis.blog@gmail.com\"> bassomis</a></h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1145,7 +1145,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/full-navbar/full-navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-xs-6\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"/assets/logo.png\" width=\"120\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\n          </a>\n        </div>\n      </div>\n      <div class=\"col-xs-6\">\n          <ul class=\"nav navbar-nav navbar-right icons\">\n            <li><a href=\"https://www.facebook.com/bassomismusicblog/\" class=\"icon\"><i class=\"mdi mdi-facebook\"></i></a></li>\n            <li><a href=\"https://www.instagram.com/bassomis.musicblog/\" class=\"icon\"><i class=\"mdi mdi-instagram\"></i></a></li>\n          </ul>\n     </div>\n    </div>\n    <div class=\"row cat-nav\">\n      <div class=\"col-xs-12\">\n        <ul class=\"categories\">\n          <li class=\"category\" *ngFor=\"let category of categories\">\n            <a href=\"#\" class=\"category\" [routerLink]=\"['/category', category._id]\">{{category.title}}</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-default\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-6\">\r\n        <div class=\"navbar-header\">\r\n          <a class=\"navbar-brand\" href=\"#\">\r\n            <img src=\"/assets/logo.png\" width=\"120\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\r\n          </a>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-6\">\r\n          <ul class=\"nav navbar-nav navbar-right icons\">\r\n            <li><a href=\"https://www.facebook.com/bassomismusicblog/\" class=\"icon\"><i class=\"mdi mdi-facebook\"></i></a></li>\r\n            <li><a href=\"https://www.instagram.com/bassomis.musicblog/\" class=\"icon\"><i class=\"mdi mdi-instagram\"></i></a></li>\r\n          </ul>\r\n     </div>\r\n    </div>\r\n    <div class=\"row cat-nav\">\r\n      <div class=\"col-xs-12\">\r\n        <ul class=\"categories\">\r\n          <li class=\"category\" *ngFor=\"let category of categories\">\r\n            <a href=\"#\" class=\"category\" [routerLink]=\"['/category', category._id]\">{{category.title}}</a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -1224,7 +1224,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/main-news/main-news.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<app-about></app-about>\n<div class=\"container main-news\">\n  <div class=\"row\">\n    <div class=\"col-sm-12 border\">\n      <h1 class=\"info-headline\">Svarbiausia</h1>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div *ngFor=\"let post of importantPosts\" class=\"col-xs-12 col-md-6\">\n      <a [routerLink]=\"['/story', post._id]\">\n        <div class=\"main-post\">\n          <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\" class=\"responsive-img main-story-img fadeIn\" alt=\"Responsive image\">\n          <div class=\"main-post-text\">\n            <h3 class=\"main-story-title\">{{post.title}}</h3>\n            <p class=\"intro\">{{post.intro}}</p>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n<app-platform></app-platform>\n\n"
+module.exports = "<app-navbar></app-navbar>\r\n<app-about></app-about>\r\n<div class=\"container main-news\">\r\n  <div class=\"row\">\r\n    <div class=\"col-sm-12 border\">\r\n      <h1 class=\"info-headline\">Svarbiausia</h1>\r\n    </div>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div *ngFor=\"let post of importantPosts\" class=\"col-xs-12 col-md-6\">\r\n      <a [routerLink]=\"['/story', post._id]\">\r\n        <div class=\"main-post\">\r\n          <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\" class=\"responsive-img main-story-img fadeIn\" alt=\"Responsive image\">\r\n          <div class=\"main-post-text\">\r\n            <h3 class=\"main-story-title\">{{post.title}}</h3>\r\n            <p class=\"intro\">{{post.intro}}</p>\r\n          </div>\r\n        </div>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n<app-platform></app-platform>\r\n\r\n"
 
 /***/ }),
 
@@ -1312,7 +1312,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-xs-6\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\">\n            <img src=\"/assets/logo.png\" width=\"120\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\n          </a>\n        </div>\n      </div>\n      <div class=\"col-xs-6\">\n        <ul class=\"nav navbar-nav navbar-right icons\">\n          <li><a class=\"icon\" href=\"https://www.facebook.com/bassomismusicblog/\"><i class=\"mdi mdi-facebook\"></i></a></li>\n          <li><a class=\"icon\" href=\"https://www.instagram.com/bassomis.musicblog/\"><i class=\"mdi mdi-instagram\"></i></a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</nav>\n\n"
+module.exports = "<nav class=\"navbar navbar-default navbar-fixed-top\">\r\n  <div class=\"container\">\r\n    <div class=\"row\">\r\n      <div class=\"col-xs-6\">\r\n        <div class=\"navbar-header\">\r\n          <a class=\"navbar-brand\" href=\"#\">\r\n            <img src=\"/assets/logo.png\" width=\"120\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\r\n          </a>\r\n        </div>\r\n      </div>\r\n      <div class=\"col-xs-6\">\r\n        <ul class=\"nav navbar-nav navbar-right icons\">\r\n          <li><a class=\"icon\" href=\"https://www.facebook.com/bassomismusicblog/\"><i class=\"mdi mdi-facebook\"></i></a></li>\r\n          <li><a class=\"icon\" href=\"https://www.instagram.com/bassomis.musicblog/\"><i class=\"mdi mdi-instagram\"></i></a></li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</nav>\r\n\r\n"
 
 /***/ }),
 
@@ -1383,7 +1383,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/new-posts/new-posts.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-12 border-style\">\n      <h1 class=\"news-title\">{{category.title}}</h1>\n      <a href=\"#\" class=\"more\" [routerLink]=\"['/category', category._id]\">DAUGIAU ></a>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-xs-6 col-md-3\" *ngFor=\"let post of posts\">\n      <a [routerLink]=\"['/story', post._id]\">\n        <div class=\"main-post\">\n          <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\" class=\"img-responsive main-story-img\" alt=\"Responsive image\">\n          <div class=\"main-post-text\">\n            <h3 class=\"main-story-title\">{{post.title}}</h3>\n            <p class=\"intro\">{{post.intro}}</p>\n          </div>\n        </div>\n      </a>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-12 border-style\">\r\n      <h1 class=\"news-title\">{{category.title}}</h1>\r\n      <a href=\"#\" class=\"more\" [routerLink]=\"['/category', category._id]\">DAUGIAU ></a>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-6 col-md-3\" *ngFor=\"let post of posts\">\r\n      <a [routerLink]=\"['/story', post._id]\">\r\n        <div class=\"main-post\">\r\n          <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\" class=\"img-responsive main-story-img\" alt=\"Responsive image\">\r\n          <div class=\"main-post-text\">\r\n            <h3 class=\"main-story-title\">{{post.title}}</h3>\r\n            <p class=\"intro\">{{post.intro}}</p>\r\n          </div>\r\n        </div>\r\n      </a>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1541,7 +1541,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/story/story.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-full-navbar></app-full-navbar> \n<div class=\"container\" *ngIf=\"post\">\n  <div class=\"row\">\n    <div class=\"col-xs-12 img-wrap\">\n      <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\"  class=\"img-fluid main-story-img\">\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"story-title col-md-8 col-md-offset-2\">\n      <h1 class=\"title\">{{post?.title}}</h1>\n      <h2 class=\"sub-title\">{{post?.intro}}</h2>\n      <h3 class=\"time\">{{post?.dateEdited}}</h3>\n    </div>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-8 col-md-offset-2 text\" [innerHtml]=\"post?.content\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<app-full-navbar></app-full-navbar> \r\n<div class=\"container\" *ngIf=\"post\">\r\n  <div class=\"row\">\r\n    <div class=\"col-xs-12 img-wrap\">\r\n      <img src=\"/assets/load.jpg\" [lazyLoad]=\"post.image\" [offset]=\"offset\"  class=\"img-fluid main-story-img\">\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"story-title col-md-8 col-md-offset-2\">\r\n      <h1 class=\"title\">{{post?.title}}</h1>\r\n      <h2 class=\"sub-title\">{{post?.intro}}</h2>\r\n      <h3 class=\"time\">{{post?.dateEdited}}</h3>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-8 col-md-offset-2 text\" [innerHtml]=\"post?.content\">\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1712,11 +1712,11 @@ var CategoriesService = (function () {
     function CategoriesService(http, UserService) {
         this.http = http;
         this.UserService = UserService;
-        this.categoriesUrl = 'http://localhost:8080/categories/getAll';
-        this.CategoryUrl = 'http://localhost:8080/categories/get/';
-        this.deleteUrl = 'http://localhost:8080/categories/delete';
-        this.createUrl = 'http://localhost:8080/categories/create';
-        this.updateUrl = 'http://localhost:8080/categories/update';
+        this.categoriesUrl = 'categories/getAll';
+        this.CategoryUrl = 'categories/get/';
+        this.deleteUrl = 'categories/delete';
+        this.createUrl = 'categories/create';
+        this.updateUrl = 'categories/update';
     }
     CategoriesService.prototype.getCategories = function () {
         return this.http.get(this.categoriesUrl).map(this.extractData).catch(this.handleError);
@@ -1818,15 +1818,15 @@ var MainNewsService = (function () {
     function MainNewsService(http, UserService) {
         this.http = http;
         this.UserService = UserService;
-        this.postsUrl = 'http://localhost:8080/posts/getAll';
-        this.post1Url = 'http://localhost:8080/posts/getPost';
-        this.deleteUrl = 'http://localhost:8080/posts/delete';
-        this.createUrl = 'http://localhost:8080/posts/create';
-        this.updateUrl = 'http://localhost:8080/posts/update';
-        this.uploadUrl = 'http://localhost:8080/posts/upload';
-        this.getPostsCatl = 'http://localhost:8080/posts/getPostsL';
-        this.getPostsCat = 'http://localhost:8080/posts/getPosts';
-        this.deltePhotoUrl = 'http://localhost:8080/posts/deletePhoto';
+        this.postsUrl = 'posts/getAll';
+        this.post1Url = 'posts/getPost';
+        this.deleteUrl = 'posts/delete';
+        this.createUrl = 'posts/create';
+        this.updateUrl = 'posts/update';
+        this.uploadUrl = 'posts/upload';
+        this.getPostsCatl = 'posts/getPostsL';
+        this.getPostsCat = 'posts/getPosts';
+        this.deltePhotoUrl = 'posts/deletePhoto';
     }
     MainNewsService.prototype.getPosts = function () {
         return this.http.get(this.postsUrl).map(this.extractData).catch(this.handleError);
@@ -1858,7 +1858,6 @@ var MainNewsService = (function () {
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw(errMsg);
     };
     ;
@@ -1889,7 +1888,6 @@ var MainNewsService = (function () {
         headers.append('enctype', 'multipart/form-data');
         headers.append('Accept', 'application/json');
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
-        console.log(isImportant);
         return this.http.post(this.updateUrl, { id: id, category: category, title: title, intro: intro, content: content, image: image, isImportant: isImportant, dateEdited: dateEdited }, options).map(this.extractData).catch(this.handleError);
     };
     MainNewsService.prototype.getPostById = function (id) {
@@ -1969,10 +1967,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
-        this.deleteUrl = 'http://localhost:8080/users/delete';
-        this.createUrl = 'http://localhost:8080/users/register';
-        this.getAllUrl = 'http://localhost:8080/users/getAll';
-        this.autehnticateUrl = 'http://localhost:8080/users/authenticate';
+        this.deleteUrl = 'users/delete';
+        this.createUrl = 'users/register';
+        this.getAllUrl = 'users/getAll';
+        this.autehnticateUrl = 'users/authenticate';
     }
     UserService.prototype.registerUser = function (name, username, password) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -2007,7 +2005,6 @@ var UserService = (function () {
         else {
             errMsg = error.message ? error.message : error.toString();
         }
-        console.error(errMsg);
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(errMsg);
     };
     ;
