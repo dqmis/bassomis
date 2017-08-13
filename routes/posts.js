@@ -103,7 +103,7 @@ router.get('/getPostsL/:category', (req, res) => {
 router.post('/deletePhoto', passport.authenticate('jwt', {session: false}), (req, res) => {
     key = req.body.key;
     var params = {
-        Bucket:'bassomis/photos', 
+        Bucket:'bassomisbicket/photos', 
         Key: key
     };
 
@@ -120,7 +120,7 @@ router.post('/upload', multipartMiddleware, passport.authenticate('jwt', {sessio
     fileStream.on('open', function () {
 
         s3.putObject({
-            Bucket: 'bassomis/photos',
+            Bucket: 'bassomisbicket/photos',
             Key: file.name,
             Body: fileStream
         },
