@@ -631,7 +631,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".about-top{\r\n    margin-top: 150px;\r\n    text-align: center;\r\n}\r\n\r\nh1{\r\n    font-size: 3rem;\r\n    margin: 15px 0;\r\n    color: #424242;\r\n}\r\n\r\nh1.imp{\r\n    color: #212121;\r\n    padding: 10px;\r\n    font-size: 3.9rem;\r\n}\r\n\r\nspan.background{\r\n    background-color: #212121;\r\n    padding: 0 15px;\r\n    color: white;\r\n}\r\n\r\nh1.th{\r\n    text-align: left;\r\n    margin-left: 100px;\r\n    margin-top: 40px;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n    .about-top{\r\n        display: none;\r\n    }\r\n}", ""]);
+exports.push([module.i, ".about-top{\r\n    margin-top: 150px;\r\n    text-align: center;\r\n}\r\n\r\nh1{\r\n    font-size: 3rem;\r\n    margin: 15px 0;\r\n    color: #424242;\r\n}\r\n\r\nh1.imp{\r\n    color: #212121;\r\n    padding: 10px;\r\n    font-size: 3rem;\r\n}\r\n\r\nspan.background{\r\n    background-color: #212121;\r\n    padding: 0 15px;\r\n    color: white;\r\n}\r\n\r\nh1.th{\r\n    text-align: left;\r\n    margin-left: 100px;\r\n    margin-top: 40px;\r\n}\r\n\r\n@media screen and (max-width: 450px) {\r\n    .about-top{\r\n        display: none;\r\n    }\r\n}", ""]);
 
 // exports
 
