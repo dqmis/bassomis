@@ -38,7 +38,7 @@ app.use('/categories', categories);
 app.use('/posts', posts);
 app.use('/users', users);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 
 process.env.PWD = process.cwd();
