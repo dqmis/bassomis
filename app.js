@@ -49,7 +49,7 @@ const Path = path.join(process.env.PWD, 'public');
 app.use(express.static(Path));
 
 app.get('/google4352428df994bdcb.html', (req, res) => {
-  res.render('google4352428df994bdcb.html');
+  res.send('google4352428df994bdcb.html');
 });
 
 app.get('/', (req, res) => {
