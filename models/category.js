@@ -8,6 +8,10 @@ const CategorySchema = mongoose.Schema({
         required: true,
         unique: true,
         index: true
+    },
+    about: {
+        type: String,
+        required: true
     }
 });
 
@@ -22,6 +26,10 @@ module.exports.getAllCategories = function(callback){
     Category.find({}, callback);
 };
 
+module.exports.getCategoryById = function(id, callback){
+    Category.findById(id, callback);
+}
+
 module.exports.addCategory = function(newCategory, callback){
     newCategory.save(callback);
 };
@@ -31,8 +39,10 @@ module.exports.removeCategory = function(id, callback){
     Category.remove(query, callback);
 };
 
-module.exports.updateCategory = function(id, title, callback){
-    const query = ({_id: id}, {$set: {title: title}});
-    Category.update(query, callback);
+module.exports.updateCategory = function(id, title, about, callback){
+    const query = ({$set: {title: title, about: about}});
+        Category.findByIdAndUpdate(id, query, { new: true }, function (err, Post) {
+            if (err) return handleError(err);
+        })
 }
 

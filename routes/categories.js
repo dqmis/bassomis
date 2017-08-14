@@ -2,11 +2,13 @@ const express = require('express');
 const router = express.Router();
 const config = require('../config/database');
 const Category = require('../models/category');
+const passport = require('passport');
 
 // Create Category
-router.post('/create', (req, res, next) => {
+router.post('/create', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     let newCategory = new Category({
-        title: req.body.title
+        title: req.body.title,
+        about: req.body.about
     });
 
     Category.addCategory(newCategory, (err, category) => {
@@ -21,9 +23,8 @@ router.post('/create', (req, res, next) => {
 });
 
 // Delete Category
-router.post('/delete', (req, res, next) => {
+router.post('/delete', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const id = req.body.id;
-    console.log('Got id: ' + id);
     Category.removeCategory(id, (err, category) =>{
         if(err){
             res.json({success: false, msg: 'Failed to delete category'});
@@ -34,11 +35,19 @@ router.post('/delete', (req, res, next) => {
     })
 });
 
+router.get('/get/:id', (req, res, next) => {
+    const id = req.params.id;
+    Category.getCategoryById(id, (err, category) => {
+        res.json(category)
+    })
+})
+
 // Update Category
-router.post('/update', (req, res, next) => {
+router.post('/update', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     const id = req.body.id;
     const title = req.body.title;
-    Category.updateCategory(id, title, (err, category) =>{
+    const about = req.body.about;
+    Category.updateCategory(id, title, about, (err, category) =>{
         if(err){
             res.json({success: false, msg: 'Failed to update category'});
         }
