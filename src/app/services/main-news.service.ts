@@ -15,15 +15,15 @@ export class Delete{
 @Injectable()
 export class MainNewsService {
 
-  private postsUrl = 'http://localhost:8080/posts/getAll';
-  private post1Url = 'http://localhost:8080/posts/getPost';
-  private deleteUrl = 'http://localhost:8080/posts/delete';
-  private createUrl = 'http://localhost:8080/posts/create';
-  private updateUrl = 'http://localhost:8080/posts/update';
-  private uploadUrl = 'http://localhost:8080/posts/upload';
-  private getPostsCatl = 'http://localhost:8080/posts/getPostsL';
-  private getPostsCat = 'http://localhost:8080/posts/getPosts';
-  private deltePhotoUrl = 'http://localhost:8080/posts/deletePhoto';
+  private postsUrl = 'posts/getAll';
+  private post1Url = 'posts/getPost';
+  private deleteUrl = 'posts/delete';
+  private createUrl = 'posts/create';
+  private updateUrl = 'posts/update';
+  private uploadUrl = 'posts/upload';
+  private getPostsCatl = 'posts/getPostsL';
+  private getPostsCat = 'posts/getPosts';
+  private deltePhotoUrl = 'posts/deletePhoto';
 
   constructor(
     private http: Http,
@@ -63,7 +63,6 @@ export class MainNewsService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   };
 
@@ -100,8 +99,6 @@ export class MainNewsService {
     headers.append('enctype', 'multipart/form-data');
     headers.append('Accept', 'application/json');
     let options = new RequestOptions({ headers: headers });
-    
-    console.log(isImportant);
 
     return this.http.post(this.updateUrl, {id, category, title, intro, content, image, isImportant, dateEdited}, options).map(this.extractData).catch(this.handleError);
 

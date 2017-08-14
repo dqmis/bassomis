@@ -6,9 +6,9 @@
 }
 
 .navbar.scrolled {
-  background-color: white !important;
-  transition: background-color 150ms linear;
-  border-bottom: 1px solid #eee;
+    background-color: white !important;
+    transition: background-color 150ms linear;
+    border-bottom: 1px solid #eee;
 }
 
 .nav-top{
@@ -27,6 +27,7 @@ i.mdi:hover{
 
 a.icon{
     padding: 10px;
+    padding-top: 6px;
 }
 
 @media screen and (max-width: 6969px) {
@@ -42,8 +43,6 @@ ul.icons{
     padding-top: 10px;
     padding-right: 10px;
 }
-
-
 
 ul.categories{
     text-align: center;

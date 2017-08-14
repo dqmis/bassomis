@@ -19,11 +19,11 @@ export class Create{
 @Injectable()
 export class CategoriesService {
 
-  private categoriesUrl = 'http://localhost:8080/categories/getAll';
-  private CategoryUrl = 'http://localhost:8080/categories/get/';
-  private deleteUrl = 'http://localhost:8080/categories/delete';
-  private createUrl = 'http://localhost:8080/categories/create';
-  private updateUrl = 'http://localhost:8080/categories/update';
+  private categoriesUrl = 'categories/getAll';
+  private CategoryUrl = 'categories/get/';
+  private deleteUrl = 'categories/delete';
+  private createUrl = 'categories/create';
+  private updateUrl = 'categories/update';
 
   constructor(
     private http: Http,

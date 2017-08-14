@@ -75,7 +75,7 @@ export class EditPostComponent implements OnInit {
       var photoTitle = this.post.image;
       if(this.photo){
         this.postService.deltePhoto(this.post.image).subscribe();
-        photoTitle = 'https://s3.amazonaws.com/bassomisbucket/photos/' + this.photo.name;
+        photoTitle = 'https://s3.amazonaws.com/bassomisbicket/photos/' + this.photo.name;
         this.postService.uploadPhoto(this.photo).subscribe();
       }
       if(!this.category){

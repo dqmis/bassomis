@@ -12,10 +12,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-  private deleteUrl = 'http://localhost:8080/users/delete';
-  private createUrl = 'http://localhost:8080/users/register';
-  private getAllUrl = 'http://localhost:8080/users/getAll';
-  private autehnticateUrl = 'http://localhost:8080/users/authenticate';
+  private deleteUrl = 'users/delete';
+  private createUrl = 'users/register';
+  private getAllUrl = 'users/getAll';
+  private autehnticateUrl = 'users/authenticate';
   authToken: any;
   user: any;
 
@@ -60,7 +60,6 @@ export class UserService {
     } else {
       errMsg = error.message ? error.message : error.toString();
     }
-    console.error(errMsg);
     return Observable.throw(errMsg);
   };
 

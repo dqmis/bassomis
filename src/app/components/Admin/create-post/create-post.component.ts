@@ -61,7 +61,7 @@ export class CreatePostComponent implements OnInit {
     var photoName = this.makeid();
 
     if(category && title && intro && this.editorContent && this.photo){
-      var photoTitle = 'https://s3.amazonaws.com/bassomisbucket/photos/' + this.photo.name;
+      var photoTitle = 'https://s3.amazonaws.com/bassomisbicket/photos/' + this.photo.name;
       this.postService.uploadPhoto(this.photo).subscribe();
       this.postService.addPost(category, title, intro, this.editorContent,  photoTitle, this.isImportant).subscribe(() => {return 0});
       this.errorBox = false;

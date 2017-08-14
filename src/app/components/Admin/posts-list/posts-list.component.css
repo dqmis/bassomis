@@ -18,8 +18,6 @@ button:hover{
     cursor: pointer;
 }
 
-
-
 button{
     margin-left: 10px;
     border: none;
@@ -27,7 +25,6 @@ button{
     color: #424242;
     background-color: white;
 }
-
 
 span.buttons{
     width: 15%;

@@ -52,8 +52,6 @@ a:hover{
      margin-bottom: 20px;
 }
 
-
-
 h1.news-title{
     font-size: 4rem;
     font-weight: bold;
@@ -111,12 +109,12 @@ a.more{
 
 @media screen and (max-width: 767px) {
     .main-post-text{
-overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 3; /* number of lines to show */
-   line-height: 1.8em;        /* fallback */
-   height: 62px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; 
+        line-height: 1.8em;
+        height: 62px; 
     }
 }

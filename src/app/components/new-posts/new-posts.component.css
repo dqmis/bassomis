@@ -38,14 +38,13 @@ a:hover{
 }
 
 .main-post-text{
-    /*border: 1px solid #BDBDBD;*/
     padding: 10px;
     height: 200px;
     overflow: hidden;
-       display: -webkit-box;
-   -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
     line-height: 1.6em; 
-     margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 456px) {
@@ -82,18 +81,14 @@ div.border-style{
     border-bottom: 1px solid #E0E0E0;
 }
 
-
-
 @media screen and (max-width: 767px) {
     .main-post-text{
-overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 3; /* number of lines to show */
-   line-height: 1.8em;        /* fallback */
-   height: 62px; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        line-height: 1.8em;        
+        height: 62px; 
     }
 }
-
-
