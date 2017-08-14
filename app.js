@@ -18,6 +18,7 @@ mongoose.connection.on('err', () => {
     console.log('failed to connect to database "' + config.database + '" ' + err);
 });
 
+// Express App
 const app = express();
 
 
