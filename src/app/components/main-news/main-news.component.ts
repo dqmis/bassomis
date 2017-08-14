@@ -48,4 +48,8 @@ export class MainNewsComponent implements OnInit {
     }
   }
 
+  ngOnDestroy(){
+    document.body.style.backgroundImage = "none";
+  }
+
 }

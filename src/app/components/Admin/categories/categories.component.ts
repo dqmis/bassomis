@@ -46,14 +46,18 @@ export class CategoriesComponent implements OnInit {
   }
 
   addCategory(title: string, about: string): void{
-    title = title.slice(0,19);
-    var cat = {title: title, about: about, _id: '5'};
-    this.categories.push(cat);
-    this.categoriesService.addCategory(title, about).subscribe();
+    if(title && about){
+      title = title.slice(0,19);
+      var cat = {title: title, about: about, _id: '5'};
+      this.categories.push(cat);
+      this.categoriesService.addCategory(title, about).subscribe();
+    }
   }
 
   afterFocus(category: Category){
-    category.title = category.title.slice(0, 19);
-    this.categoriesService.editCategory(category).subscribe();
+    if(category.about && category.title){
+      category.title = category.title.slice(0, 19);
+      this.categoriesService.editCategory(category).subscribe();
+    }
   }
 }
