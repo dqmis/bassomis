@@ -41,16 +41,11 @@ app.use('/users', users);
 
 const port = process.env.PORT || 3000;
 
-
 process.env.PWD = process.cwd();
 
 const Path = path.join(process.env.PWD, 'public');
 
 app.use(express.static(Path));
-
-app.get('/google4352428df994bdcb.html', (req, res) => {
-  res.send('google4352428df994bdcb.html');
-});
 
 app.get('/', (req, res) => {
   res.render('index.html');
